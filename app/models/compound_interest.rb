@@ -2,8 +2,9 @@ class CompoundInterest
 
   include ActiveModel::Model
 
-  attr_accessor :current_principal, :years_to_grow, :interest_rate
-
+  attr_accessor :current_principal, :years_to_grow, :interest_rate,
+  :annual_addition
+  
   attr_reader :result
 
   validates :current_principal, :years_to_grow, :interest_rate, presence: true
@@ -17,7 +18,7 @@ class CompoundInterest
 
   private
 
-  def calculate_result
+  def calculate_result + future_value_of_additions
     future_value_of_principal
   end
 
